@@ -32,6 +32,7 @@ const Sidebar = ({ users, channels }) => {
                         </a>
                     ))}
                 </div>
+
                 {/* Kullanıcılar */}
                 <h3 className="mt-8 text-sm font-semibold text-gray-700 uppercase tracking-wide">Kullanıcılar</h3>
                 <div className="mt-2 -mx-3">
