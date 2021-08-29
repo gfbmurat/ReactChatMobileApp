@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import channelActions from '../redux/actions/channelActions'
+
 
 const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
 
     const [activeClass, setActiveClass] = useState("")
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setActiveClass(channels[0])
@@ -10,6 +14,7 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
     }, [channels])
 
     const selectCurrentChannel = (channel) => {
+        dispatch(channelActions.setCurrentChannel(channel))
         setActiveClass(channel)
         setIsOpen(false)
     }
@@ -29,10 +34,17 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
                     </svg>
                 </button>
             </div>
-            <nav className="mt-8">
-                <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Kanallar</h3>
+            <nav className="mt-8 border-b-[1px] border-gray-300">
+                <div className="flex justify-between items-center">
+                    <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Kanallar</h3>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                </div>
                 {/* Channels */}
-                <div className="mt-2 -mx-3">
+                <div className="mt-4 -mx-3">
                     {channels.map(channel => (
                         <a
                             onClick={() => selectCurrentChannel(channel)}
