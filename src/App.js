@@ -1,6 +1,7 @@
 import React from "react";
+import ChannelHeader from "./components/ChannelHeader";
+import Comment from "./components/Comment";
 import Header from "./components/Header";
-import Message from "./components/Message";
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -22,31 +23,14 @@ function App() {
   ]
 
   return (
-    <div className="h-full flex divide-x-2 divide-gray-300">
-      {/* Sidebar */}
+    <div className="h-screen flex">
       <Sidebar users={users} channels={channels} />
-      {/* Main  */}
-      <div className="flex-1 min-w-0  px-8 py-4">
+
+      <div className="flex-1 h-screen min-w-0 px-8 py-4">
         <Header />
-
-        <div className="flex flex-col border-solid border-2 rounded-md p-2 border-gray-300 h-4/5">
-          {/* Channel Info  */}
-          <div className="mt-4 bg-gray-400 flex justify-between items-center p-3 rounded-md">
-            <h3 className="text-white font-medium">#Genel</h3>
-            <input className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" />
-          </div>
-
-          {/* Comment Side */}
-          <div className="mt-4 pl-4 mb-4  border-gray h-[800px] rounded-md">
-            <Message name={"Dracarys"} message={"Merhaba tailwindcss ile react"} />
-            <Message name={"Muhammed"} message={"Merhaba tailwindcss ile react"} />
-            <Message name={"Elif"} message={"Merhaba tailwindcss ile react"} />
-            <Message name={"Gönül"} message={"Merhaba tailwindcss ile react"} />
-          </div>
-          {/* Input Send Message */}
-          <div className="flex-auto justify-end items-end">
-            <input className=" w-full  shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" placeholder="Genel kanalına mesaj gönder." />
-          </div>
+        <div className="mt-2 h-[90%] flex border-2 border-gray-300 flex-col rounded-md p-2">
+          <ChannelHeader />
+          <Comment />
         </div>
       </div>
     </div>

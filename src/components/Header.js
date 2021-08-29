@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <header className="flex justify-between items-center py-3">
+        <header className="flex justify-between items-center py-3 border-b-2 border-gray-400">
             <div className="text-gray-500 font-semibold text-lg">React Chat App</div>
             {/* Icons */}
             <div className="flex items-center">

@@ -14,7 +14,7 @@ const Sidebar = ({ users, channels }) => {
     }
 
     return (
-        <div className="w-64 px-8 py-4 overflow-hidden">
+        <div className="w-64 px-8 py-4 overflow-auto border-r-[1px] border-gray-300">
             <div>
                 <img src="./images/logo.svg" alt="Logo" className="w-9 h-9" />
             </div>
