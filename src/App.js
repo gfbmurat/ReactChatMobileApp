@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ChannelHeader from "./components/ChannelHeader";
 import Comment from "./components/Comment";
 import Header from "./components/Header";
@@ -22,12 +22,14 @@ function App() {
     { id: 5, name: 'Fenerbahçe', notification: 1907 },
   ]
 
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className="h-screen flex">
-      <Sidebar users={users} channels={channels} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} users={users} channels={channels} />
 
       <div className="flex-1 h-screen min-w-0 px-8 py-4">
-        <Header />
+        <Header isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className="mt-2 h-[90%] flex border-2 border-gray-300 flex-col rounded-md p-2">
           <ChannelHeader />
           <Comment />
