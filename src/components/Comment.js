@@ -4,7 +4,7 @@ import Message from "./Message";
 const Comment = () => {
     return (
         <>
-            <div className="mt-4 pl-4 mb-4 h-full  border-gray rounded-md">
+            <div className="mt-4 pl-4 mb-4 h-full border-gray rounded-md">
                 <Message name={"Dracarys"} message={"Merhaba tailwindcss ile react"} />
                 <Message name={"Muhammed"} message={"Merhaba tailwindcss ile react"} />
                 <Message name={"Elif"} message={"Merhaba tailwindcss ile react"} />

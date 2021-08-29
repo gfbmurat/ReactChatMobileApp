@@ -30,7 +30,7 @@ function App() {
 
       <div className="flex-1 h-screen min-w-0 px-8 py-4">
         <Header isOpen={isOpen} setIsOpen={setIsOpen} />
-        <div className="mt-2 h-[90%] flex border-2 border-gray-300 flex-col rounded-md p-2">
+        <div className="mt-2 h-[90%] flex border-[1px] border-gray-300 flex-col rounded-md p-2">
           <ChannelHeader />
           <Comment />
         </div>
