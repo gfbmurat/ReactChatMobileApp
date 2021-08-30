@@ -27,7 +27,7 @@ const Comment = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                 </button>
-                <input className="focus:border-green-600 w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" placeholder="Genel kanalına mesaj gönder." />
+                <input autoComplete="off" className="focus:border-green-600 w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" placeholder="Genel kanalına mesaj gönder." />
             </div>
         </>
     )
