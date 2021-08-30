@@ -11,7 +11,7 @@ const messages = [
 const Comment = () => {
     return (
         <>
-            <div className="mt-4 pl-4 mb-4 h-full border-gray rounded-md overflow-auto">
+            <div className="mt-4 pl-4 mb-4 h-full border-gray rounded-md overflow-auto scrollbar-rounded scrollbar-thumb:bg-indigo-400/[0.26]">
                 <Message name={"Dracarys"} message={"Merhaba tailwindcss ile react"} />
                 <Message name={"Muhammed"} message={"Merhaba tailwindcss ile react"} />
                 <Message name={"Elif"} message={"Merhaba tailwindcss ile react"} />
@@ -21,13 +21,13 @@ const Comment = () => {
                 ))}
             </div>
             {/* Input Send Message */}
-            <div className="flex-auto flex justify-end items-end">
-                <button className="border text-center rounded-md p-2 text-gray-700 hover:text-gray-600 mr-2">
+            <div className="flex-auto flex justify-center items-center shadow focus:border-red-600">
+                <button className="h-[38px] border text-center rounded p-2 text-gray-700 hover:text-gray-600 mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                 </button>
-                <input className=" w-full  shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" placeholder="Genel kanalına mesaj gönder." />
+                <input className="focus:border-green-600 w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text" placeholder="Genel kanalına mesaj gönder." />
             </div>
         </>
     )

@@ -13,30 +13,6 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    // ...
-    require('tailwind-scrollbar-variants')({
-      button: {
-        display: "none",
-        height: "0px",
-        width: "0px"
-      },
-      corner: {
-        bgColor: "transparent"
-      },
-      scrollbar: {
-        height: "14px",
-        scrollbarWidth: "thin",
-        width: "14px"
-      },
-      thumb: {
-        bgOpacity: "0.15",
-        borderColor: "transparent",
-        borderRadius: "7px",
-        borderStyle: "solid",
-        borderWidth: "4px",
-        height: "auto",
-        width: "auto"
-      }
-    }),
+    require('tailwind-scrollbar-variants')
   ],
 }
