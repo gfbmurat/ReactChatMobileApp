@@ -6,13 +6,16 @@ const Login = () => {
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm()
     const [fbErrors, setFbErrors] = useState([]) // Firebase hatalarını tutmak
+    const [submitting, setSubmitting] = useState(false) // Butona tıklanınca disabled yapmak
+
     const onSubmit = (data, e) => {
         console.log(data);
+        setSubmitting(true)
     }
 
     const handleChange = (e) => {
-        console.log(e.target.name, e.target.value);
-        setValue(e.target.name, e.target.value)
+        const { name, value } = e.target
+        setValue(name, value)
         setFbErrors([])
     }
 
@@ -42,7 +45,7 @@ const Login = () => {
                         <p className={`text-red-500 text-xs italic ${errors.password ? '' : 'hidden'}`}>Please choose a password.</p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <button className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button disabled={submitting} className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Sign In
                         </button>
                         <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
