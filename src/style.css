@@ -676,6 +676,10 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1166,6 +1170,10 @@ video {
 
   .xs\:flex {
     display: flex;
+  }
+
+  .xs\:hidden {
+    display: none;
   }
 
   .xs\:h-4 {

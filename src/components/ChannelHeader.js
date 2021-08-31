@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import InputIcon from "@material-tailwind/react/InputIcon";
 
 const ChannelHeader = (channelName) => {
 
@@ -12,7 +13,12 @@ const ChannelHeader = (channelName) => {
                 </svg>
                 <h3 className="text-gray-700 font-medium">{currentChannel?.name}</h3>
             </div>
-            <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" />
+            {/* <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" /> */}
+            <div>
+                <InputIcon
+                    iconFamily="material-icons"
+                    iconName="search" id="search" type="text" color="teal" size="sm" outline={true} placeholder="Search Message" />
+            </div>
         </div>
     )
 }
