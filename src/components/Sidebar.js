@@ -49,7 +49,7 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
                         <a
                             onClick={() => selectCurrentChannel(channel)}
                             className={`flex justify-between items-center px-3 py-2 ${activeClass.id === channel.id ? 'bg-gradient-to-r from-purple-700 to-blue-500 rounded-md' : ''}`}
-                            key={channel.id} href="/#">
+                            key={channel.id} >
                             <span className={`text-sm ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>{channel.name}</span>
                             <span className={`text-xs ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

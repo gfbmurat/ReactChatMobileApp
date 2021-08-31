@@ -4,14 +4,17 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: theme => ({
+        "mobile": "url('./assets/android_login.png')",
+        "desktop": "url('./assets/login_background.png')",
+      }),
       screens: {
         'xs': { 'min': '360px', 'max': '639px' },
       },
     },
+
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [
     require('tailwind-scrollbar-variants')
   ],
