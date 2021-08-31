@@ -11,6 +11,7 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import PrivateRoute from './components/auth/PrivateRoute';
 import { useHistory } from 'react-router';
 import SignUp from './components/auth/SignUp';
+import '@material-tailwind/react/tailwind.css'
 
 const rrfConfig = {
   userProfile: 'users',

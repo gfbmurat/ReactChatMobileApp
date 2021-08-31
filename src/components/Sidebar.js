@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
                     </svg>
                 </button>
             </div>
-            <nav className="mt-8 border-b-[1px] border-gray-300">
+            <nav className="mt-8">
                 <div className="flex justify-between items-center">
                     <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Kanallar</h3>
                     <button>
@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
                     {channels.map(channel => (
                         <a
                             onClick={() => selectCurrentChannel(channel)}
-                            className={`flex justify-between items-center px-3 py-2 ${activeClass.id === channel.id ? 'bg-gradient-to-r from-purple-700 to-blue-500 rounded-md' : ''}`}
+                            className={`flex justify-between items-center px-3 py-2 cursor-pointer ${activeClass.id === channel.id ? 'bg-gradient-to-r from-purple-700 to-blue-500 rounded-md' : ''}`}
                             key={channel.id} >
                             <span className={`text-sm ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>{channel.name}</span>
                             <span className={`text-xs ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>
