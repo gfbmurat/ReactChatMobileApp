@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import App from './App';
@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import firebase from './firebase'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-
+import PrivateRoute from './components/auth/PrivateRoute';
+import { useHistory } from 'react-router';
 
 const rrfConfig = {
   userProfile: 'users',
@@ -22,10 +23,29 @@ const rrfProps = {
 
 const Root = () => {
 
+  const history = useHistory();
+
+  useEffect(() => {
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        //Login olmuş
+
+        history.push("/")
+
+      } else {
+        //Login olmamış
+        history.push("/login")
+      }
+    })
+  }, [history])
+
   return (
     <Switch>
-      <Route exact path="/app" component={App} />
-      <Route exact path="/" component={Login} />
+      <PrivateRoute exact path="/">
+        <App />
+      </PrivateRoute>
+      <Route exact path="/login" component={Login} />
     </Switch>
   )
 }
