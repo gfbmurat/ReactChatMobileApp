@@ -3,7 +3,7 @@ import { useFirebase } from 'react-redux-firebase'
 import Dropdown from "@material-tailwind/react/Dropdown"
 import DropdownItem from "@material-tailwind/react/DropdownItem"
 import DropdownLink from "@material-tailwind/react/DropdownLink"
-import Image from "@material-tailwind/react/Image";
+
 
 const Header = ({ isOpen, setIsOpen }) => {
 
@@ -14,24 +14,25 @@ const Header = ({ isOpen, setIsOpen }) => {
     }
 
     const signout = () => {
-        return (
-            <Dropdown>
-                <DropdownItem color="lightBlue" ripple="light">
-                    Action
-                </DropdownItem>
-                <DropdownLink
-                    href="#"
-                    color="red"
-                    ripple="light"
-                    onClick={() => firebase.logout()}
-                >
-                    Another Action
-                </DropdownLink>
-                <DropdownItem color="lightBlue" ripple="light">
-                    Something else
-                </DropdownItem>
-            </Dropdown>
-        )
+        firebase.logout();
+        // return (
+        //     <Dropdown>
+        //         <DropdownItem color="lightBlue" ripple="light">
+        //             Action
+        //         </DropdownItem>
+        //         <DropdownLink
+        //             href="#"
+        //             color="red"
+        //             ripple="light"
+        //             onClick={() => firebase.logout()}
+        //         >
+        //             Another Action
+        //         </DropdownLink>
+        //         <DropdownItem color="lightBlue" ripple="light">
+        //             Something else
+        //         </DropdownItem>
+        //     </Dropdown>
+        // )
 
     }
 

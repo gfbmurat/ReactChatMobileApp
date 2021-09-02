@@ -8,12 +8,12 @@ import InputIcon from '@material-tailwind/react/InputIcon'
 import Checkbox from '@material-tailwind/react/Checkbox'
 import { useWindowWidth } from '@react-hook/window-size'
 import { useFirebase } from 'react-redux-firebase';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
 const CreateChannelForm = ({ showModal, setShowModal }) => {
 
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+    const { register, handleSubmit, control, setValue, formState: { errors } } = useForm()
     const firebase = useFirebase();
     const uid = useSelector(state => state.firebase.auth.uid)
     const profile = useSelector(state => state.firebase.profile)
@@ -46,7 +46,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
     }
 
 
-
     return (
         <>
             <Modal size={windowSize > 480 ? 'md' : 'sm'} active={showModal} toggler={() => setShowModal(false)}>
@@ -65,6 +64,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 onChange={handleChange}
                                 size="regular"
                                 outline={true}
+                                control={control}
                                 color={errors.name ? 'red' : "lightBlue"}
                                 placeholder="Kanal Adı"
                                 iconFamily="material-icons"
@@ -79,6 +79,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 color={errors.description ? 'red' : "lightBlue"}
                                 size="regular"
                                 outline={true}
+                                control={control}
                                 placeholder="Kanal Açıklama"
                                 iconFamily="material-icons"
                                 iconName="description"
@@ -91,6 +92,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 color="green"
                                 text="Şifreli kanal oluştur"
                                 id="checkbox"
+                                control={control}
                                 checked={isPassword}
                                 value={isPassword}
                             />
@@ -98,12 +100,13 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         <div className={`mb-4 ${isPassword ? '' : 'hidden transition-all'}`}>
                             <InputIcon
                                 name="password"
-                                {...register("password", { required: true, minLength: 6 })}
+                                {...register("password", { required: isPassword, minLength: 6 })}
                                 onChange={handleChange}
                                 color={errors.password ? 'red' : "lightBlue"}
                                 size="regular"
                                 type="password"
                                 outline={true}
+                                control={control}
                                 placeholder="Kanal Şifresi"
                                 iconFamily="material-icons"
                                 iconName="lock"

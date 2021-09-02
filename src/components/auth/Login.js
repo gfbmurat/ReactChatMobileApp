@@ -74,7 +74,7 @@ const Login = () => {
                                     iconName="email"
                                 />
                             </div>
-                            <div className="mb-4">
+                            <div>
                                 <InputIcon
                                     name="password"
                                     {...register("password", { required: true, minLength: 6 })}
@@ -99,19 +99,10 @@ const Login = () => {
                                 </Link>
                             </div>
                         </CardFooter>
+                        {fbErrors.length > 0 && <div className="bg-errorColor text-white text-xs rounded-md text-center p-1" >{fbErrors.map((error, index) => {
+                            return <p key={index}>{error.message}</p>
+                        })}</div>}
                     </Card>
-
-                    {/* <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                            Password
-                        </label>
-                        <input
-                            {...register("password", { required: true, minLength: 6 })}
-                            onChange={handleChange}
-                            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${errors.password ? 'border-red-500' : ''}`} name="password" id="password" type="password" placeholder="******" />
-                        <p className={`text-red-500 text-xs italic ${errors.password ? '' : 'hidden'}`}>Please choose a password.</p>
-                    </div> */}
-
                 </form>
             </div>
         </div>

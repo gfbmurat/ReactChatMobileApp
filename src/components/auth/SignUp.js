@@ -128,6 +128,9 @@ const SignUp = () => {
                                 </Link>
                             </div>
                         </CardFooter>
+                        {fbErrors.length > 0 && <div className="bg-errorColor text-white text-xs rounded-md text-center p-1" >{fbErrors.map((error, index) => {
+                            return <p key={index}>{error.message}</p>
+                        })}</div>}
                     </Card>
                 </form>
             </div>

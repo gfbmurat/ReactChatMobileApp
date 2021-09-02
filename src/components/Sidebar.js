@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import channelActions from '../redux/actions/channelActions'
-import CreateChannelForm from './channels/CreateChannelForm'
 
 
-const Sidebar = ({ showModal, setShowModal, isOpen, setIsOpen, users, channels }) => {
+const Sidebar = ({ setShowModal, isOpen, setIsOpen, users, channels }) => {
 
     const [activeClass, setActiveClass] = useState("")
     const dispatch = useDispatch()
@@ -52,6 +51,7 @@ const Sidebar = ({ showModal, setShowModal, isOpen, setIsOpen, users, channels }
                 <div className="mt-4 -mx-3">
                     {channels.map(channel => (
                         <a
+                            href="#"
                             onClick={() => selectCurrentChannel(channel)}
                             className={`flex justify-between items-center px-3 py-2 cursor-pointer ${activeClass.id === channel.id ? 'bg-gradient-to-r from-purple-700 to-blue-500 rounded-md' : ''}`}
                             key={channel.id} >
