@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChannelHeader from "./components/ChannelHeader";
+import CreateChannelForm from "./components/channels/CreateChannelForm";
 import Comment from "./components/Comment";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -23,11 +24,12 @@ function App() {
   ]
 
   const [isOpen, setIsOpen] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <div className="h-screen flex">
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} users={users} channels={channels} />
-
+      <Sidebar showModal={showModal} setShowModal={setShowModal} isOpen={isOpen} setIsOpen={setIsOpen} users={users} channels={channels} />
+      <CreateChannelForm showModal={showModal} setShowModal={setShowModal} />
       <div className="flex-1 h-screen min-w-0 px-8 py-4">
         <Header isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className="mt-2 h-[90%] flex border-[1px] border-gray-300 flex-col rounded-md p-2">
@@ -35,6 +37,7 @@ function App() {
           <Comment />
         </div>
       </div>
+
     </div>
   );
 }

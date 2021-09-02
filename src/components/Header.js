@@ -14,7 +14,25 @@ const Header = ({ isOpen, setIsOpen }) => {
     }
 
     const signout = () => {
-        firebase.logout()
+        return (
+            <Dropdown>
+                <DropdownItem color="lightBlue" ripple="light">
+                    Action
+                </DropdownItem>
+                <DropdownLink
+                    href="#"
+                    color="red"
+                    ripple="light"
+                    onClick={() => firebase.logout()}
+                >
+                    Another Action
+                </DropdownLink>
+                <DropdownItem color="lightBlue" ripple="light">
+                    Something else
+                </DropdownItem>
+            </Dropdown>
+        )
+
     }
 
     return (

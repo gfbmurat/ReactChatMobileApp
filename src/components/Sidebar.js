@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import channelActions from '../redux/actions/channelActions'
+import CreateChannelForm from './channels/CreateChannelForm'
 
 
-const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
+const Sidebar = ({ showModal, setShowModal, isOpen, setIsOpen, users, channels }) => {
 
     const [activeClass, setActiveClass] = useState("")
     const dispatch = useDispatch()
@@ -23,6 +24,10 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
         setIsOpen(!isOpen)
     }
 
+    const toggleChannelForm = () => {
+        setShowModal(true)
+    }
+
     return (
         <div className={`fixed lg:static inset-y-0 left-0 w-64 z-50 px-8 py-4 bg-white overflow-auto border-r-[1px] border-gray-300 lg:translate-x-0 transform 
             ${isOpen ? 'xs:hidden translate-x-0 ease-out transition-medium' : '-translate-x-full ease-in transition-medium'}`}>
@@ -37,7 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen, users, channels }) => {
             <nav className="mt-8">
                 <div className="flex justify-between items-center">
                     <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Kanallar</h3>
-                    <button>
+                    <button onClick={toggleChannelForm}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
