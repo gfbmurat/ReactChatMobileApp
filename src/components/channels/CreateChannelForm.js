@@ -60,6 +60,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         <div className="mb-4">
                             <InputIcon
                                 name="name"
+                                error={errors.name ? ' ' : ''}
                                 {...register("name", { required: true })}
                                 onChange={handleChange}
                                 size="regular"
@@ -74,6 +75,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         <div className="mb-4">
                             <InputIcon
                                 name="description"
+                                error={errors.description ? ' ' : ''}
                                 {...register("description", { required: true })}
                                 onChange={handleChange}
                                 color={errors.description ? 'red' : "lightBlue"}
@@ -100,6 +102,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         <div className={`mb-4 ${isPassword ? '' : 'hidden transition-all'}`}>
                             <InputIcon
                                 name="password"
+                                error={errors.password ? ' ' : ''}
                                 {...register("password", { required: isPassword, minLength: 6 })}
                                 onChange={handleChange}
                                 color={errors.password ? 'red' : "lightBlue"}

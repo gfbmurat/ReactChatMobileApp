@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import InputIcon from "@material-tailwind/react/InputIcon";
 
-const ChannelHeader = (channelName) => {
+const ChannelHeader = () => {
 
     const currentChannel = useSelector(state => state.channelReducer)
     return (
