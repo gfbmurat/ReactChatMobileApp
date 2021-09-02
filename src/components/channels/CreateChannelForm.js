@@ -23,6 +23,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                     </p>
                     <div className="w-full mb-4 min-w-full">
                         <InputIcon
+                            name="name"
                             size="regular"
                             outline={true}
                             placeholder="Kanal Adı"
@@ -31,6 +32,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         />
                     </div>
                     <InputIcon
+                        name="description"
                         size="regular"
                         outline={true}
                         placeholder="Kanal Açıklama"
