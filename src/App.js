@@ -28,7 +28,9 @@ function App() {
 
   return (
     <div className="h-screen flex">
-      <Sidebar showModal={showModal} setShowModal={setShowModal} isOpen={isOpen} setIsOpen={setIsOpen} users={users} channels={channels} />
+      <div className={`${showModal ? 'blur' : ''}`}>
+        <Sidebar showModal={showModal} setShowModal={setShowModal} isOpen={isOpen} setIsOpen={setIsOpen} users={users} channels={channels} />
+      </div>
       <CreateChannelForm showModal={showModal} setShowModal={setShowModal} />
       <div className="flex-1 h-screen min-w-0 px-8 py-4">
         <Header isOpen={isOpen} setIsOpen={setIsOpen} />
