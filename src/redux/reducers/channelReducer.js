@@ -1,15 +1,20 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-    channel: {}
+    currentChannel: null
 }
 
-const channelReducer = (state = initialState.channel, action) => {
+const channelReducer = (state = initialState.currentChannel, action) => {
     switch (action.type) {
         case actionTypes.SET_CURRENT_CHANNEL:
-            return action.payload;
+            return {
+                ...state,
+                currentChannel: action.payload
+            }
         default:
-            return state
+            return {
+                ...state
+            }
     }
 }
 

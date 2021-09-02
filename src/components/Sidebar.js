@@ -1,23 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import channelActions from '../redux/actions/channelActions'
+import ChannelList from './channels/ChannelList'
 
 
-const Sidebar = ({ setShowModal, isOpen, setIsOpen, users, channels }) => {
+const Sidebar = ({ setShowModal, isOpen, setIsOpen, users }) => {
 
-    const [activeClass, setActiveClass] = useState("")
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        setActiveClass(channels[0])
-
-    }, [channels])
-
-    const selectCurrentChannel = (channel) => {
-        dispatch(channelActions.setCurrentChannel(channel))
-        setActiveClass(channel)
-        setIsOpen(false)
-    }
 
     const toggleButon = () => {
         setIsOpen(!isOpen)
@@ -49,7 +38,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen, users, channels }) => {
                 </div>
                 {/* Channels */}
                 <div className="mt-4 -mx-3">
-                    {channels.map(channel => (
+                    {/* {channels.map(channel => (
                         <a
                             href="#"
                             onClick={() => selectCurrentChannel(channel)}
@@ -62,7 +51,8 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen, users, channels }) => {
                                 </svg>
                             </span>
                         </a>
-                    ))}
+                    ))} */}
+                    <ChannelList />
                 </div>
 
                 {/* Kullanıcılar */}
