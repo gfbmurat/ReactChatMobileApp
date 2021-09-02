@@ -1,5 +1,10 @@
 import React from 'react'
 import { useFirebase } from 'react-redux-firebase'
+import Dropdown from "@material-tailwind/react/Dropdown"
+import DropdownItem from "@material-tailwind/react/DropdownItem"
+import DropdownLink from "@material-tailwind/react/DropdownLink"
+import Image from "@material-tailwind/react/Image";
+
 const Header = ({ isOpen, setIsOpen }) => {
 
     const firebase = useFirebase()
@@ -31,8 +36,11 @@ const Header = ({ isOpen, setIsOpen }) => {
                     </svg>
                 </button>
                 <button onClick={signout} className="text-gray-500 object-cover pl-4">
+
                     <img className="w-9 h-9 rounded-full" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="Profile" />
                 </button>
+
+
             </div>
         </header>
     )
