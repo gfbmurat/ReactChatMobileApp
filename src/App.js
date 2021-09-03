@@ -13,7 +13,6 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
-
   const firebase = useFirebase()
   const currentUser = useSelector(state => state.userReducer.currentUser)
   const uid = useSelector(state => state.firebase.auth.uid)

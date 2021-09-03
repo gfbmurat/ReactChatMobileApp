@@ -1,10 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import moment from 'moment'
 
 const Message = ({ messageKey, message }) => {
 
-    const currentChannel = useSelector(state => state.channelReducer.currentChannel)
+
     const timeFromNow = (timestamp) => moment(timestamp).fromNow();
 
 

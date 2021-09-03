@@ -22,8 +22,8 @@ const UserList = () => {
     return (
         <div >
             {users.map(user => (
-                <>
-                    <a key={user?.key} className="flex justify-between items-center px-3 py-2" href="/#">
+                <div key={user?.key}>
+                    <a className="flex justify-between items-center px-3 py-2" href="/#">
                         <span className="text-sm text-gray-700 font-medium">{user?.value.name}</span>
                         <span ref={activeRef} className={`text-sm font-semibold ${user?.value.isActive ? 'text-green-700' : 'text-red-700'}`}>
                             {user?.value.isActive ? <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,7 +37,7 @@ const UserList = () => {
                     <Tooltips placement="bottom" ref={activeRef}>
                         <TooltipsContent>{moment(user.value.lastLoginData).fromNow()}</TooltipsContent>
                     </Tooltips>
-                </>
+                </div>
             ))}
         </div>
     )
