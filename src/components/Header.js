@@ -21,7 +21,7 @@ const Header = ({ isOpen, setIsOpen }) => {
     const signout = () => {
         firebase.database().ref("users").child(uid).update({ isActive: false }) // Logout yapan kullanıcının aktif özelliği false yapma
         firebase.logout();
-        firebase.logout();
+        //firebase.logout();
         // return (
         //     <Dropdown>
         //         <DropdownItem color="lightBlue" ripple="light">
