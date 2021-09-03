@@ -29,10 +29,15 @@ const Comment = () => {
         messageEndRef?.current.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }, [channelMessages])
 
+    const scrollToBottom = () => {
+        messageEndRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        });
+    };
 
     const messageInputChange = (e) => { // inputta her değişiklik olduğunda scroll aşağı inecek şekilde ayarlandı
         setContent(e.target.value)
-        messageEndRef?.current.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
 
     const handleSubmit = event => {
@@ -75,6 +80,7 @@ const Comment = () => {
                         </svg>
                     </button>
                     <input
+                        onClick={scrollToBottom}
                         value={content}
                         onChange={messageInputChange}
                         autoComplete="off"
