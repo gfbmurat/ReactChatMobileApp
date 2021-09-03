@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 const Header = ({ isOpen, setIsOpen }) => {
 
     const uid = useSelector(state => state.firebase.auth.uid)
+    const profile = useSelector(state => state.firebase.profile)
 
     const firebase = useFirebase()
 
@@ -57,7 +58,8 @@ const Header = ({ isOpen, setIsOpen }) => {
                 </button>
                 <button onClick={signout} className="text-gray-500 object-cover pl-4">
 
-                    <img className="w-9 h-9 rounded-full" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="Profile" />
+                    {/* <img className="w-9 h-9 rounded-full" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="Profile" /> */}
+                    <img className="w-9 h-9 rounded-full" src={profile?.avatar} alt={profile?.name} />
                 </button>
 
 

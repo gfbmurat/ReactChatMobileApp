@@ -8,7 +8,7 @@ import InputIcon from '@material-tailwind/react/InputIcon'
 import Checkbox from '@material-tailwind/react/Checkbox'
 import { useWindowWidth } from '@react-hook/window-size'
 import { useFirebase } from 'react-redux-firebase';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
 const CreateChannelForm = ({ showModal, setShowModal }) => {

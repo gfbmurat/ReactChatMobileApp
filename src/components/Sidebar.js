@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import channelActions from '../redux/actions/channelActions'
+import React from 'react'
 import ChannelList from './channels/ChannelList'
 import UserList from './users/UserList'
 
 
-const Sidebar = ({ setShowModal, isOpen, setIsOpen, users }) => {
-
-    const dispatch = useDispatch()
+const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
 
     const toggleButon = () => {
         setIsOpen(!isOpen)
