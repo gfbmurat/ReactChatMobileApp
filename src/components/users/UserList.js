@@ -19,8 +19,6 @@ const UserList = () => {
         return "No users"
     }
 
-
-
     return (
         <div >
             {users.map(user => (

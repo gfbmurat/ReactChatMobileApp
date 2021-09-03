@@ -62,7 +62,6 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
                         </a>
                     })} */}
                     <UserList />
-
                 </div>
             </nav>
         </div>

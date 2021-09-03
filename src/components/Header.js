@@ -69,8 +69,6 @@ const Header = ({ isOpen, setIsOpen }) => {
                 <Tooltips placement="bottom" ref={buttonRef}>
                     <TooltipsContent>Sign Out</TooltipsContent>
                 </Tooltips>
-
-
             </div>
         </header>
     )
