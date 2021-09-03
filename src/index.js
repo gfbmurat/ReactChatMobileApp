@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import 'alertifyjs/build/css/alertify.min.css'
 import App from './App';
 import store from './redux/reducers/store'
 import { Provider } from 'react-redux';

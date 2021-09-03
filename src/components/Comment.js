@@ -22,16 +22,16 @@ const Comment = () => {
     const uid = useSelector(state => state.firebase.auth.uid)
 
     const [content, setContent] = useState("")
-    //const fileInputRef = useRef(null)
+    const fileInputRef = useRef(null)
     const messageEndRef = useRef(null) // Yeni mesaj geldiğinde sayfa aşağı aksın
 
     useEffect(() => {
-        messageEndRef?.current.scrollIntoView({ behavior: 'smooth', block: 'end' })
+        messageEndRef?.current.scrollIntoView({ behavior: 'auto', block: 'end' })
     }, [channelMessages])
 
     const scrollToBottom = () => {
         messageEndRef.current.scrollIntoView({
-            behavior: "smooth",
+            behavior: "auto",
             block: "end"
         });
     };
@@ -74,13 +74,14 @@ const Comment = () => {
             {/* Input Send Message */}
             <form onSubmit={handleSubmit}>
                 <div className="flex-auto flex justify-center items-center shadow focus:border-red-600">
-                    <button className="h-[38px] border text-center rounded p-2 text-gray-700 hover:text-gray-600 mr-2">
+                    <button onClick={() => fileInputRef.current.click()} className="h-[38px] border text-center rounded p-2 text-gray-700 hover:text-gray-600 mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
+                        <input ref={fileInputRef} style={{ display: 'none' }} type="file" name="file" />
                     </button>
                     <input
-                        onClick={scrollToBottom}
+                        onFocus={scrollToBottom}
                         value={content}
                         onChange={messageInputChange}
                         autoComplete="off"
