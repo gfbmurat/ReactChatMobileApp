@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import channelActions from '../redux/actions/channelActions'
 import ChannelList from './channels/ChannelList'
+import UserList from './users/UserList'
 
 
 const Sidebar = ({ setShowModal, isOpen, setIsOpen, users }) => {
@@ -58,12 +59,13 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen, users }) => {
                 {/* Kullanıcılar */}
                 <h3 className="mt-8 text-sm font-semibold text-gray-700 uppercase tracking-wide">Kullanıcılar</h3>
                 <div className="mt-2 -mx-3">
-                    {users.map(user => {
+                    {/* {users.map(user => {
                         return <a key={user.id} className="flex justify-between items-center px-3 py-2" href="/#">
                             <span className="text-sm text-gray-700 font-medium">{user.name}</span>
                             <span className="text-xs font-medium text-gray-700">{user.notification}</span>
                         </a>
-                    })}
+                    })} */}
+                    <UserList />
 
                 </div>
             </nav>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useFirebase } from 'react-redux-firebase'
 import { useDispatch } from 'react-redux'
+import userActions from '../../redux/actions/userActions'
 import InputIcon from '@material-tailwind/react/InputIcon'
 import Card from "@material-tailwind/react/Card";
 import CardHeader from "@material-tailwind/react/CardHeader";
@@ -13,6 +14,7 @@ import H5 from "@material-tailwind/react/Heading5";
 const Login = () => {
 
     const firebase = useFirebase()
+    const dispatch = useDispatch()
     const { register, handleSubmit, formState: { errors }, setValue } = useForm()
     const [fbErrors, setFbErrors] = useState([]) // Firebase hatalarını tutmak
     const [submitting, setSubmitting] = useState(false) // Butona tıklanınca disabled yapmak
@@ -25,7 +27,7 @@ const Login = () => {
             { email, password })
             .then((data) => {
                 console.log(data);
-                //dispatch(userActions.setCurrentUser({ currentUser: data }))
+                dispatch(userActions.setCurrentUser({ currentUser: data }))
             }).catch((error) => {
                 setFbErrors([{ message: error.message }])
             }).finally(() => {

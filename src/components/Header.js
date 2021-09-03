@@ -1,11 +1,10 @@
 import React from 'react'
 import { useFirebase } from 'react-redux-firebase'
-import Dropdown from "@material-tailwind/react/Dropdown"
-import DropdownItem from "@material-tailwind/react/DropdownItem"
-import DropdownLink from "@material-tailwind/react/DropdownLink"
-
+import { useSelector } from 'react-redux'
 
 const Header = ({ isOpen, setIsOpen }) => {
+
+    const uid = useSelector(state => state.firebase.auth.uid)
 
     const firebase = useFirebase()
 
@@ -14,6 +13,8 @@ const Header = ({ isOpen, setIsOpen }) => {
     }
 
     const signout = () => {
+        firebase.database().ref("users").child(uid).update({ isActive: false }) // Logout yapan kullanıcının aktif özelliği false yapma
+        firebase.logout();
         firebase.logout();
         // return (
         //     <Dropdown>
