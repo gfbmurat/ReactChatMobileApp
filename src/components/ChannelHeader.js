@@ -4,7 +4,7 @@ import InputIcon from "@material-tailwind/react/InputIcon";
 
 const ChannelHeader = () => {
 
-    const currentChannel = useSelector(state => state.channelReducer)
+    const currentChannel = useSelector(state => state.channelReducer.currentChannel)
     return (
         <div className="mt-4 bg-gray-100 flex justify-between items-center p-3 rounded-md">
             <div className="flex justify-center items-center text-gray-700 mb-2">
