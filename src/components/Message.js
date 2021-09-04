@@ -15,7 +15,10 @@ const Message = ({ messageKey, message }) => {
     const firebase = useFirebase()
     const tooltipRef = useRef()
 
+    const isMedia = message => message.hasOwnProperty('image'); // mesajın image alanı varsa true döner.
+
     const timeFromNow = (timestamp) => moment(timestamp).fromNow();
+
 
     const usersLikedMessage = (message) => {
         let likeUsername = []
@@ -60,7 +63,7 @@ const Message = ({ messageKey, message }) => {
                 </div>
             </div>
             <div className="pl-14 mt-[-4px] items-start text-gray-600 ">
-                <p>{message?.content}</p>
+                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md mb-2" src={message.image} /> : <p>{message?.content}</p>}
             </div>
             <div className="text-xs text-gray-400 pl-14 flex items-center">
                 <div>

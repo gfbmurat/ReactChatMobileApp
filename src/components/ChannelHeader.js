@@ -2,7 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import InputIcon from "@material-tailwind/react/InputIcon";
 
-const ChannelHeader = () => {
+const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
+
+
 
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
     return (
@@ -16,6 +18,8 @@ const ChannelHeader = () => {
             {/* <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" /> */}
             <div>
                 <InputIcon
+                    value={searchTerm}
+                    onChange={event => setSearchTerm(event.target.value)}
                     iconFamily="material-icons"
                     iconName="search" id="search" type="text" color="teal" size="sm" outline={true} placeholder="Search Message" />
             </div>

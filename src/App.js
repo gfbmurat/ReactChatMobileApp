@@ -12,6 +12,7 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
 
   const firebase = useFirebase()
   const currentUser = useSelector(state => state.userReducer.currentUser)
@@ -32,8 +33,8 @@ function App() {
       <div className="flex-1 h-screen min-w-0 px-8 py-4">
         <Header isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className={`mt-2 h-[90%] flex border-[1px] border-gray-300 flex-col rounded-md p-2 ${showModal ? 'blur' : ''}`}>
-          <ChannelHeader />
-          <Comment />
+          <ChannelHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Comment searchTerm={searchTerm} />
         </div>
       </div>
 
