@@ -35,32 +35,12 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
                 </div>
                 {/* Channels */}
                 <div className="mt-4 -mx-3">
-                    {/* {channels.map(channel => (
-                        <a
-                            href="#"
-                            onClick={() => selectCurrentChannel(channel)}
-                            className={`flex justify-between items-center px-3 py-2 cursor-pointer ${activeClass.id === channel.id ? 'bg-gradient-to-r from-purple-700 to-blue-500 rounded-md' : ''}`}
-                            key={channel.id} >
-                            <span className={`text-sm ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>{channel.name}</span>
-                            <span className={`text-xs ${activeClass.id === channel.id ? 'text-white' : 'text-gray-700'} font-medium`}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-                                </svg>
-                            </span>
-                        </a>
-                    ))} */}
                     <ChannelList />
                 </div>
 
                 {/* Kullanıcılar */}
                 <h3 className="mt-8 text-sm font-semibold text-gray-700 uppercase tracking-wide">Kullanıcılar</h3>
                 <div className="mt-2 -mx-3">
-                    {/* {users.map(user => {
-                        return <a key={user.id} className="flex justify-between items-center px-3 py-2" href="/#">
-                            <span className="text-sm text-gray-700 font-medium">{user.name}</span>
-                            <span className="text-xs font-medium text-gray-700">{user.notification}</span>
-                        </a>
-                    })} */}
                     <UserList />
                 </div>
             </nav>

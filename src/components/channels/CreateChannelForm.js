@@ -103,7 +103,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                             <InputIcon
                                 name="password"
                                 error={errors.password ? ' ' : ''}
-                                {...register("password", { required: isPassword, minLength: 6 })}
+                                {...register("password", { required: isPassword, minLength: 4 })}
                                 onChange={handleChange}
                                 color={errors.password ? 'red' : "lightBlue"}
                                 size="regular"

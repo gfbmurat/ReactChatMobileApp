@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import channelActions from '../../redux/actions/channelActions'
 
-const ChannelList = ({ activeClass }) => {
+const ChannelList = () => {
     useFirebaseConnect([{ path: "channels" }])
     const dispatch = useDispatch()
 
@@ -33,6 +33,7 @@ const ChannelList = ({ activeClass }) => {
     const setActiveChannel = channel => {
         if (channel.channelPassword) { // Eğer seçilen kanal şifreli ise burası çalışacak
             console.log(channel?.channelPassword);
+
             dispatch(channelActions.setCurrentChannel(channel))
 
         } else {
