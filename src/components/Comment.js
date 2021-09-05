@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
 import { useFirebaseConnect } from 'react-redux-firebase';
 import { v4 as uuid_v4 } from "uuid";
+import Input from "@material-tailwind/react/Input";
 
 const Comment = ({ searchTerm }) => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
@@ -109,6 +110,10 @@ const Comment = ({ searchTerm }) => {
             })
     }
 
+    const inputClick = () => {
+        fileInputRef.current.click();
+    }
+
     return (
         <>
             <div className="mt-4 pl-4 mb-4 h-full border-gray rounded-md overflow-auto scrollbar-rounded scrollbar-thumb:bg-indigo-400/[0.26]">
@@ -121,14 +126,13 @@ const Comment = ({ searchTerm }) => {
 
             {/* Input Send Message */}
             <form onSubmit={handleSubmit}>
-                <div className="flex-auto flex justify-center items-center shadow focus:border-red-600">
-                    <button onClick={() => fileInputRef.current.click()} className="h-[38px] border text-center rounded p-2 text-gray-700 hover:text-gray-600 mr-2">
+                <div className="flex-auto flex justify-center items-center">
+                    <button type="button" onClick={inputClick} className="h-9 flex items-center border rounded-lg text-center p-2 text-gray-700 hover:text-gray-600 mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
-                        <input className="hidden" onChange={uploadMedia} ref={fileInputRef} type="file" name="file" />
                     </button>
-                    <input
+                    {/* <input
                         onFocus={scrollToBottom}
                         value={content}
                         onChange={messageInputChange}
@@ -136,10 +140,25 @@ const Comment = ({ searchTerm }) => {
                         className="focus:border-green-600 w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="message"
                         type="text"
-                        placeholder={`${currentChannel?.name} kanalına mesaj gönder.`} />
+                        placeholder={`${currentChannel?.name} kanalına mesaj gönder.`} /> */}
+                    <Input
+                        onFocus={scrollToBottom}
+                        value={content}
+                        onChange={messageInputChange}
+                        type="text"
+                        color="lightBlue"
+                        size="sm"
+                        outline={true}
+                        placeholder={`${currentChannel?.name} kanalına mesaj gönder.`}
+                    />
+                    <button type="submit" className="h-9 bg-green-400 hover:bg-green-200 flex items-center border text-center rounded-lg p-2 text-white hover:text-gray-600 ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
                 </div>
-
             </form>
+            <input ref={fileInputRef} className="hidden" onChange={() => uploadMedia} type="file" name="file" />
             <CreateChannelForm />
         </>
     )
