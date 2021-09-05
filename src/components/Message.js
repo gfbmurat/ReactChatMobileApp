@@ -4,11 +4,15 @@ import { useSelector } from 'react-redux'
 import { useFirebase } from 'react-redux-firebase'
 import ReactPlayer from 'react-player'
 import youtubeRegex from 'youtube-regex'
+import { useMediaQuery } from 'react-responsive'
 import alertify from 'alertifyjs'
 import Tooltips from "@material-tailwind/react/Tooltips";
 import TooltipsContent from "@material-tailwind/react/TooltipsContent";
 
 const Message = ({ messageKey, message }) => {
+
+    const isMobile = useMediaQuery({ minWidth: 360, maxWidth: 669 }) // Responsive Control(Mobile)
+
 
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
     const uid = useSelector(state => state.firebase.auth.uid)
@@ -33,7 +37,7 @@ const Message = ({ messageKey, message }) => {
 
                 if (ReactPlayer.canPlay(resultL[0])) {
                     return <div className="my-2">
-                        <ReactPlayer playing light url={resultL[0]} controls />
+                        <ReactPlayer width={`${isMobile ? '200px' : '640px'}`} height={`${isMobile ? '150px' : '360px'}`} playing light url={resultL[0]} controls />
                     </div>
                 }
 
@@ -116,7 +120,7 @@ const Message = ({ messageKey, message }) => {
                 </div>
             </div>
             <div className="pl-14 mt-[-2px] items-start text-gray-600 ">
-                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p>{renderedMessage(message)}</p>}
+                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p className="mb-2">{renderedMessage(message)}</p>}
             </div>
             <div className="text-xs text-gray-400 pl-14 flex items-center">
                 <div>
