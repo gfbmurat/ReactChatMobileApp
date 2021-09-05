@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { useFirebase } from 'react-redux-firebase'
+import ReactPlayer from 'react-player'
+import youtubeRegex from 'youtube-regex'
 import alertify from 'alertifyjs'
 import Tooltips from "@material-tailwind/react/Tooltips";
 import TooltipsContent from "@material-tailwind/react/TooltipsContent";
@@ -18,6 +20,57 @@ const Message = ({ messageKey, message }) => {
     const isMedia = message => message.hasOwnProperty('image'); // mesajın image alanı varsa true döner.
 
     const timeFromNow = (timestamp) => moment(timestamp).fromNow();
+
+
+    const renderedMessage = (message) => {
+        if (youtubeRegex().test(message.content)) {
+            if (currentChannel.name === "Şarkı Öneri") {
+                const links = message.content.split(' ')
+                const resultL = links.filter(l => {
+                    return l.match("www.youtube.com") || l.match("https://youtu.be") // Girilen message'dan linki geri döndürme
+                })
+                console.log(resultL[0]);
+
+                if (ReactPlayer.canPlay(resultL[0])) {
+                    return <div className="my-2">
+                        <ReactPlayer playing light url={resultL[0]} controls />
+                    </div>
+                }
+
+                return <span style={{ background: '#9F3A38', color: '#fff', borderRadius: '.3rem', paddingInline: '.2rem' }}>Link Geçerli Değil</span>
+
+            }
+            return message.content;
+
+        } else if (message.content.length > 0 && message.content.includes("*")) {
+            const starIndex = message.content.indexOf("*");
+            return (
+                <p>
+                    {message.content.substring(starIndex, -1)}
+                    <b>{message.content.slice(starIndex + 1, message.content.length)}</b>
+                </p>
+            );
+        } else if (message.content.length > 0 && message.content.includes("/")) {
+            const slashIndex = message.content.indexOf("/");
+            return (
+                <p>
+                    {message.content.substring(slashIndex, -1)}
+                    <i>{message.content.slice(slashIndex + 1, message.content.length)}</i>
+                </p>
+            );
+        } else if (message.content.length > 0 && message.content.includes("<")) {
+            const slashIndex = message.content.indexOf("<");
+            return (
+                <p >
+                    {message.content.substring(slashIndex, -1)}
+                    <span style={{ fontFamily: "Dancing Script,cursive" }}>{message.content.slice(slashIndex + 1, message.content.length)}</span>
+                </p>
+            );
+        }
+        else {
+            return message.content;
+        }
+    }
 
 
     const usersLikedMessage = (message) => {
@@ -63,7 +116,7 @@ const Message = ({ messageKey, message }) => {
                 </div>
             </div>
             <div className="pl-14 mt-[-2px] items-start text-gray-600 ">
-                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p>{message?.content}</p>}
+                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p>{renderedMessage(message)}</p>}
             </div>
             <div className="text-xs text-gray-400 pl-14 flex items-center">
                 <div>
