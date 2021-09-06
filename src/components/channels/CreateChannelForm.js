@@ -21,6 +21,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
     const [isPassword, setIsPassword] = useState(false)
     const windowSize = useWindowWidth()
 
+
     const onSubmit = (data, e) => {
         const { name, description, password } = data
         firebase.push("channels", {
@@ -41,7 +42,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        console.log(name, value);
         setValue(name, value)
     }
 

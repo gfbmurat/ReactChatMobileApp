@@ -1,9 +1,10 @@
-import React from 'react'
+
 import ChannelList from './channels/ChannelList'
 import UserList from './users/UserList'
 
 
 const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
+
 
     const toggleButon = () => {
         setIsOpen(!isOpen)
@@ -38,6 +39,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
                         </svg>
                     </button>
                 </div>
+
                 {/* Channels */}
                 <div className="mt-4 -mx-3">
                     <ChannelList />

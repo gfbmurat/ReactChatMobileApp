@@ -13,6 +13,7 @@ const ChannelList = () => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
     const [mounted, setMounted] = useState(false)
 
+
     useEffect(() => {
         // Burada en başta bir kanalın seçili gelmesi için yazıldı.
         if (!mounted && !isEmpty(channels)) {

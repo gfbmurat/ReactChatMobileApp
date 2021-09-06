@@ -1265,10 +1265,6 @@ button {
     -webkit-transform: var(--tw-transform);
             transform: var(--tw-transform);
   }
-
-  .lg\:justify-center {
-    justify-content: center;
-  }
 }
 
 @media (min-width: 360px) and (max-width: 639px) {
