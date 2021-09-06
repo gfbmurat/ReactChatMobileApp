@@ -1272,6 +1272,21 @@ button {
   background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
 }
 
+.disabled\:bg-red-50:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
+}
+
+.disabled\:bg-green-50:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
+}
+
+.disabled\:bg-green-100:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
+}
+
 .scrollbar-thumb\:bg-indigo-400\/\[0\.26\]::-webkit-scrollbar-thumb {
   background-color: rgba(129, 140, 248, 0.26);
 }
