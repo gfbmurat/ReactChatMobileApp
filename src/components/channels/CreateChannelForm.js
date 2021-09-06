@@ -56,17 +56,17 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                     <p className="text-base leading-relaxed text-gray-600 font-normal mb-4">
                         Arkadaşlarınızla konuşabileceğiniz herkese açık veya şifreli kanallar oluşturabilirsiniz.Kanalı oluşturan kişiden başkası silemez!
                     </p>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-4">
                             <InputIcon
                                 name="name"
                                 error={errors.name ? ' ' : ''}
-                                {...register("name", { required: true })}
+                                {...register("name", { required: true, maxLength: 15 })}
                                 onChange={handleChange}
                                 size="regular"
                                 outline={true}
                                 color={errors.name ? 'red' : "lightBlue"}
-                                placeholder="Kanal Adı"
+                                placeholder="Kanal Adı(max-length:15)"
                                 iconFamily="material-icons"
                                 iconName="hashtag"
                             />
