@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import channelActions from '../../redux/actions/channelActions'
+import alertify from 'alertifyjs'
+import { toast } from "react-toastify";
 
 const ChannelList = () => {
     useFirebaseConnect([{ path: "channels" }])
     const dispatch = useDispatch()
 
     const channels = useSelector(state => state.firebase.ordered.channels)
-    const [mounted, setMounted] = useState(false)
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
         // Burada en başta bir kanalın seçili gelmesi için yazıldı.
@@ -33,8 +35,46 @@ const ChannelList = () => {
     const setActiveChannel = channel => {
         if (channel.channelPassword) { // Eğer seçilen kanal şifreli ise burası çalışacak
             console.log(channel?.channelPassword);
+            alertify.prompt(`${channel?.name}`, 'Şifreyi Giriniz', ""
+                , function (evt, value) {
+                    if (channel?.channelPassword === value) {
+                        dispatch(channelActions.setCurrentChannel(channel))
+                        toast.success('Kanala Giriş Başarılı', {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
 
-            dispatch(channelActions.setCurrentChannel(channel))
+                    } else {
+                        value = ""
+                        toast.error('Şifreyi Yanlış Girdiniz..', {
+                            position: "bottom-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    }
+                }
+                , function () {
+                    toast.error('Geçersiz Şifre', {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }).set('type', 'password');
+
+
 
         } else {
             dispatch(channelActions.setCurrentChannel(channel))

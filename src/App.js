@@ -4,7 +4,7 @@ import CreateChannelForm from "./components/channels/CreateChannelForm";
 import Comment from "./components/Comment";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-
+import { ToastContainer } from "react-toastify";
 import { useSelector } from 'react-redux'
 import { useFirebase } from 'react-redux-firebase'
 
@@ -38,7 +38,18 @@ function App() {
           <Comment searchTerm={searchTerm} />
         </div>
       </div>
-
+      <ToastContainer
+        theme="dark"
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

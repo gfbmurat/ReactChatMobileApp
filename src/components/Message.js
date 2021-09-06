@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive'
 import alertify from 'alertifyjs'
 import Tooltips from "@material-tailwind/react/Tooltips";
 import TooltipsContent from "@material-tailwind/react/TooltipsContent";
+import { toast } from 'react-toastify'
 
 const Message = ({ messageKey, message }) => {
 
@@ -102,10 +103,28 @@ const Message = ({ messageKey, message }) => {
 
     const deleteMessage = () => {
         alertify.confirm('Delete Message', 'Mesajı silmek istediğinize emin misiniz?', function () {
-            alertify.success('Mesaj Silindi!')
+            toast.success('Mesaj Silindi', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             firebase.database().ref(`messages/${currentChannel.key}/${messageKey}`).remove() // Mesaj Silme İşlemi
         }
-            , function () { alertify.error('Mesaj Silinmedi!') }).autoOk(5)
+            , function () {
+                toast.error('Mesaj Silinemedi', {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }).autoOk(5)
         const loginTimestamp = firebase.database.ServerValue.TIMESTAMP
         firebase.database().ref("users").child(uid).update({ lastLoginData: loginTimestamp })
     }

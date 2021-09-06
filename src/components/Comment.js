@@ -7,7 +7,7 @@ import { useFirebase } from 'react-redux-firebase';
 import { useFirebaseConnect } from 'react-redux-firebase';
 import { v4 as uuid_v4 } from "uuid";
 import Input from "@material-tailwind/react/Input";
-import alertify from 'alertifyjs';
+import { toast } from 'react-toastify';
 
 const Comment = ({ searchTerm }) => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
@@ -81,7 +81,15 @@ const Comment = ({ searchTerm }) => {
 
 
     const uploadMedia = event => {
-        alertify.warning('Resim Yükleniyor...')
+        const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 4000));
+        toast.promise(
+            resolveAfter3Sec,
+            {
+                pending: 'Resim Yükleniyor',
+                success: 'Resim Yüklendi 👌',
+                error: 'Resim Yüklenemedi 🤯'
+            }
+        )
         const file = event.target.files[0] // Sadece 1 dosya yüklenmesi işlemi(ilk seçilen)
 
         if (file) {
@@ -92,9 +100,18 @@ const Comment = ({ searchTerm }) => {
             return fileRef.put(file).then((snap) => {
                 fileRef.getDownloadURL().then((downloadURL) => {
                     sendMessageMedia(downloadURL);
+
                 }).catch((error) => {
                     console.error("error uploading file")
-                    alertify.error('Resim Yüklenemedi')
+                    toast.error('Resim Yüklenemedi', {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
             })
         }
