@@ -1,19 +1,52 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import InputIcon from "@material-tailwind/react/InputIcon";
+import Tooltips from "@material-tailwind/react/Tooltips";
+import TooltipsContent from "@material-tailwind/react/TooltipsContent";
+import alertify from 'alertifyjs';
+import { useFirebase } from 'react-redux-firebase';
+import channelActions from '../redux/actions/channelActions'
+import { useDispatch } from 'react-redux';
 
 const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
 
-
+    const firebase = useFirebase()
+    const dispatch = useDispatch()
 
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
+    const currentUserId = useSelector(state => state.firebase.auth.uid)
+    const channels = useSelector(state => state.firebase.ordered.channels)
+
+    const channelNameRef = useRef()
+
+    const removeChannel = () => {
+
+        // Kanal Silme İşlemi ve Genel Kanalı Aktif Etme
+        alertify.confirm('Delete Channel', `${currentChannel.name} kanalını silmek istediğinize emin misiniz?`,
+            function () {
+                alertify.success(`${currentChannel.name} kanalı silindi`)
+                firebase.database().ref(`channels/${currentChannel.key}`).remove()
+                const { key, value } = channels[0];
+                dispatch(channelActions.setCurrentChannel({ key, ...value }))
+            },
+            function () {
+                alertify.error(`${currentChannel.name} kanalı silinmedi`)
+            })
+    }
+
     return (
         <div className="mt-4 bg-gray-100 flex justify-between items-center p-3 rounded-md">
             <div className="flex justify-center items-center text-gray-700 mb-2">
                 <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                 </svg>
-                <h3 className="text-gray-700 font-medium xs:text-xs">{currentChannel?.name}</h3>
+                <h3 ref={channelNameRef} className="text-gray-700 font-medium xs:text-xs">{currentChannel?.name}</h3>
+                <Tooltips placement="right" ref={channelNameRef}>
+                    <TooltipsContent>
+                        {currentChannel?.description}
+                        <button disabled={currentChannel?.createdBy.uid !== currentUserId} onClick={removeChannel} className="bg-red-500 ml-2 rounded-md p-1 disabled:bg-red-300">Kanalı Sil</button>
+                    </TooltipsContent>
+                </Tooltips>
             </div>
             {/* <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" /> */}
             <div>

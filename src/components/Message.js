@@ -120,7 +120,7 @@ const Message = ({ messageKey, message }) => {
                 </div>
             </div>
             <div className="pl-14 mt-[-2px] items-start text-gray-600 ">
-                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p className="mb-2">{renderedMessage(message)}</p>}
+                {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <p>{renderedMessage(message)}</p>}
             </div>
             <div className="text-xs text-gray-400 pl-14 flex items-center">
                 <div>
