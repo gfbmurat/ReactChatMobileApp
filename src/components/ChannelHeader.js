@@ -43,8 +43,8 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
                 <h3 ref={channelNameRef} className="text-gray-700 font-medium xs:text-xs">{currentChannel?.name}</h3>
                 <Tooltips placement="right" ref={channelNameRef}>
                     <TooltipsContent>
-                        {currentChannel?.description}
-                        <button disabled={currentChannel?.createdBy.uid !== currentUserId} onClick={removeChannel} className="bg-red-500 ml-2 rounded-md p-1 disabled:bg-red-300">Kanalı Sil</button>
+                        {currentChannel?.name === "Genel" ? 'Genel Kanal Silinemez !' : currentChannel?.description}
+                        <button disabled={currentChannel?.createdBy?.uid !== currentUserId} onClick={removeChannel} className="bg-red-500 ml-2 rounded-md p-1 disabled:bg-red-300">Kanalı Sil</button>
                     </TooltipsContent>
                 </Tooltips>
             </div>

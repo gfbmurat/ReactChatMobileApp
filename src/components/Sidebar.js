@@ -15,7 +15,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
 
     return (
         <div className={`fixed lg:static inset-y-0 left-0 w-64 z-50 px-8 py-4 bg-white overflow-auto border-r-[1px] border-gray-300 lg:translate-x-0 transform 
-            ${isOpen ? 'xs:hidden translate-x-0 ease-out transition-medium' : '-translate-x-full ease-in transition-medium'}`}>
+            ${isOpen ? 'xs:hidden sm:hidden translate-x-0 ease-out transition-medium' : '-translate-x-full ease-in transition-medium'}`}>
             <div className="flex justify-between items-center">
                 {/* <img src="./images/logo.svg" alt="Logo" className="w-9 h-9" /> */}
                 <button className="text-blue-500">

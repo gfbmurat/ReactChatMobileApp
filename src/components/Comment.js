@@ -90,6 +90,7 @@ const Comment = ({ searchTerm }) => {
             return fileRef.put(file).then((snap) => {
                 fileRef.getDownloadURL().then((downloadURL) => {
                     sendMessageMedia(downloadURL);
+                    console.log(snap.bytesTransferred);
                 }).catch((error) => console.error("error uploading file"))
             })
         }
@@ -132,6 +133,7 @@ const Comment = ({ searchTerm }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
                     </button>
+                    <input ref={fileInputRef} className="hidden" onChange={uploadMedia} type="file" name="file" />
                     {/* <input
                         onFocus={scrollToBottom}
                         value={content}
@@ -158,7 +160,6 @@ const Comment = ({ searchTerm }) => {
                     </button>
                 </div>
             </form>
-            <input ref={fileInputRef} className="hidden" onChange={() => uploadMedia} type="file" name="file" />
             <CreateChannelForm />
         </>
     )

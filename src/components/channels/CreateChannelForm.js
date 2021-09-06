@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 
 const CreateChannelForm = ({ showModal, setShowModal }) => {
 
-    const { register, handleSubmit, control, setValue, formState: { errors } } = useForm()
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm()
     const firebase = useFirebase();
     const uid = useSelector(state => state.firebase.auth.uid)
     const profile = useSelector(state => state.firebase.profile)
@@ -65,7 +65,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 onChange={handleChange}
                                 size="regular"
                                 outline={true}
-                                control={control}
                                 color={errors.name ? 'red' : "lightBlue"}
                                 placeholder="Kanal Adı"
                                 iconFamily="material-icons"
@@ -81,7 +80,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 color={errors.description ? 'red' : "lightBlue"}
                                 size="regular"
                                 outline={true}
-                                control={control}
                                 placeholder="Kanal Açıklama"
                                 iconFamily="material-icons"
                                 iconName="description"
@@ -93,8 +91,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 name="checkPassword"
                                 color="green"
                                 text="Şifreli kanal oluştur"
-                                id="checkbox"
-                                control={control}
+                                id="parolaCheck"
                                 checked={isPassword}
                                 value={isPassword}
                             />
@@ -109,7 +106,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                                 size="regular"
                                 type="password"
                                 outline={true}
-                                control={control}
                                 placeholder="Kanal Şifresi"
                                 iconFamily="material-icons"
                                 iconName="lock"

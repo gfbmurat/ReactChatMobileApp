@@ -1291,6 +1291,12 @@ button {
   background-color: rgba(129, 140, 248, 0.26);
 }
 
+@media (min-width: 640px) {
+  .sm\:hidden {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:static {
     position: static;
