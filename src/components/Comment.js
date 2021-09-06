@@ -7,6 +7,7 @@ import { useFirebase } from 'react-redux-firebase';
 import { useFirebaseConnect } from 'react-redux-firebase';
 import { v4 as uuid_v4 } from "uuid";
 import Input from "@material-tailwind/react/Input";
+import alertify from 'alertifyjs';
 
 const Comment = ({ searchTerm }) => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
@@ -80,6 +81,7 @@ const Comment = ({ searchTerm }) => {
 
 
     const uploadMedia = event => {
+        alertify.warning('Resim Yükleniyor...')
         const file = event.target.files[0] // Sadece 1 dosya yüklenmesi işlemi(ilk seçilen)
 
         if (file) {
@@ -90,8 +92,10 @@ const Comment = ({ searchTerm }) => {
             return fileRef.put(file).then((snap) => {
                 fileRef.getDownloadURL().then((downloadURL) => {
                     sendMessageMedia(downloadURL);
-                    console.log(snap.bytesTransferred);
-                }).catch((error) => console.error("error uploading file"))
+                }).catch((error) => {
+                    console.error("error uploading file")
+                    alertify.error('Resim Yüklenemedi')
+                })
             })
         }
     }
