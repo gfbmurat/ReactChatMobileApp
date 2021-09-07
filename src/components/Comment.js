@@ -60,6 +60,9 @@ const Comment = ({ searchTerm }) => {
                     setContent("")
                 })
         }
+        if (profile.isActive === false) { // Kullanıcı mesaj atarken offline ise online olarak güncelledik
+            firebase.database().ref("users").child(uid).update({ isActive: true })
+        }
         const loginTimestamp = firebase.database.ServerValue.TIMESTAMP
         firebase.database().ref("users").child(uid).update({ lastLoginData: loginTimestamp })
     }
