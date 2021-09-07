@@ -37,7 +37,6 @@ const Login = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        console.log(name, value);
         setValue(name, value)
         setFbErrors([])
     }
@@ -46,17 +45,6 @@ const Login = () => {
         <div className="bg-desktop w-full h-screen flex justify-center xs:bg-mobile xs:flex xs:justify-center xs:pt-8">
             <div className="w-full max-w-md xs:max-w-sm pt-8">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            name="email"
-                            {...register("email", { required: true })}
-                            onChange={handleChange}
-                            className={`shadow appearance-none border rounded w-full py-2 px-3 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.email ? 'border-red-500' : ''}`} id="email" type="text" placeholder="Email" />
-                        <p className={`text-red-500 text-xs italic ${errors.email ? '' : 'hidden'}`}>Please enter email</p>
-                    </div> */}
                     <Card>
                         <CardHeader color="lightBlue" size="lg">
                             <H5 color="white">Login</H5>

@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen flex">
+    <div className={`h-screen flex`}>
       <div className={`${showModal ? 'blur' : ''}`}>
         <Sidebar showModal={showModal} setShowModal={setShowModal} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>

@@ -909,6 +909,11 @@ video {
   background-color: rgba(159, 58, 56, var(--tw-bg-opacity));
 }
 
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1239,6 +1244,11 @@ button {
 
 .scrollbar-thumb\:bg-indigo-400\/\[0\.26\]::-webkit-scrollbar-thumb {
   background-color: rgba(129, 140, 248, 0.26);
+}
+
+.dark .dark\:bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
