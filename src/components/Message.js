@@ -134,11 +134,11 @@ const Message = ({ messageKey, message }) => {
             <div className="flex mt-2 justify-start items-center">
                 <img className="w-9 h-9 mb-[-16px] rounded-full mr-4" src={message?.user.avatar} alt="Profile" />
                 <div className="flex justify-center items-center">
-                    <h3 className="text-gray-700 font-bold mr-2">{message?.user.name}</h3>
+                    <h3 className="text-gray-700 font-bold mr-2 dark:text-gray-300">{message?.user.name}</h3>
                     <span className="text-xs text-gray-400">{timeFromNow(message.timestamp)}</span>
                 </div>
             </div>
-            <div className="pl-14 mt-[-2px] items-start text-gray-600 ">
+            <div className="pl-14 mt-[-2px] items-start text-gray-600 dark:text-gray-400">
                 {isMedia(message) ? <img alt="resim" className="w-1/2 h-1/2 rounded-md my-2" src={message.image} /> : <div>{renderedMessage(message)}</div>}
             </div>
             <div className="text-xs text-gray-400 pl-14 flex items-center">

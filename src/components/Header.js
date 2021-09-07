@@ -45,7 +45,7 @@ const Header = ({ isOpen, setIsOpen }) => {
     return (
         <header className="flex justify-between items-center py-3 border-b-2 border-gray-400 ">
             <div className="flex">
-                <button className="text-gray-600 lg:hidden" onClick={toggleButon}>
+                <button className="text-gray-600 lg:hidden dark:text-gray-300" onClick={toggleButon}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>

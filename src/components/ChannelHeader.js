@@ -36,11 +36,11 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
 
     return (
         <div className="mt-4 bg-gray-100 flex justify-between items-center p-3 rounded-md dark:bg-gray-600">
-            <div className="flex justify-center items-center text-gray-700 mb-2">
+            <div className="flex justify-center items-center text-gray-700 mb-2 dark:text-gray-100">
                 <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                 </svg>
-                <h3 ref={channelNameRef} className="text-gray-700 font-medium xs:text-xs">{currentChannel?.name}</h3>
+                <h3 ref={channelNameRef} className="text-gray-700 font-medium xs:text-xs dark:text-gray-100">{currentChannel?.name}</h3>
                 <Tooltips placement="right" ref={channelNameRef}>
                     <TooltipsContent>
                         {currentChannel?.name === "Genel" ? 'Genel Kanal Silinemez !' : currentChannel?.description}
@@ -49,7 +49,7 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
                 </Tooltips>
             </div>
             {/* <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" /> */}
-            <div>
+            <div className="dark:text-gray-100 dark:placeholder-gray-100">
                 <InputIcon
                     value={searchTerm}
                     onChange={event => setSearchTerm(event.target.value)}

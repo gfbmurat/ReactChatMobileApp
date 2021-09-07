@@ -24,7 +24,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
                         <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <button className="text-gray-700 lg:hidden" onClick={toggleButon}>
+                <button className="text-gray-700 lg:hidden dark:text-gray-200" onClick={toggleButon}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -32,8 +32,8 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
             </div>
             <nav className="mt-8">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-400">Kanallar</h3>
-                    <button onClick={toggleChannelForm}>
+                    <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">Kanallar</h3>
+                    <button className="dark:text-gray-100" onClick={toggleChannelForm}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -46,7 +46,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
                 </div>
 
                 {/* Kullanıcılar */}
-                <h3 className="mt-8 text-sm font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-400">Kullanıcılar</h3>
+                <h3 className="mt-8 text-sm font-semibold text-gray-700 uppercase tracking-wide dark:text-gray-300">Kullanıcılar</h3>
                 <div className="mt-2 -mx-3">
                     <UserList />
                 </div>
