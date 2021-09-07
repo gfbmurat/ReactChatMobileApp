@@ -32,7 +32,8 @@ const SignUp = () => {
                 password: password,
                 avatar: `https://ui-avatars.com/api/?name=${first}+${last ? last : ''}&background=random&color=fff`, // Eğer ikinci isim yoksa ilk ismin ilk 2 harfi avatar olur.
                 isActive: true,
-                lastLoginData: firebase.database.ServerValue.TIMESTAMP
+                lastLoginData: firebase.database.ServerValue.TIMESTAMP,
+                theme: "light"
             }
         ).then((firebaseUser) => {
             console.log(firebaseUser);

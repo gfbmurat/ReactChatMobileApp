@@ -19,7 +19,6 @@ function App() {
   const uid = useSelector(state => state.firebase.auth.uid)
 
   if (currentUser && currentUser.user.additionalUserInfo.isNewUser === false) { // Giriş yapan kullanıcı yeni değilse yani sadece login yapıyorsa
-    console.log('Burası Çalışıyor');
     const timestamp = firebase.database.ServerValue.TIMESTAMP
     firebase.database().ref("users").child(uid).update({ isActive: true, lastLoginData: timestamp }) // Login yapan kullanıcının aktif özelliği true yapma
   }
