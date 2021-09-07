@@ -35,7 +35,7 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
     }
 
     return (
-        <div className="mt-4 bg-gray-100 flex justify-between items-center p-3 rounded-md">
+        <div className="mt-4 bg-gray-100 flex justify-between items-center p-3 rounded-md dark:bg-gray-600">
             <div className="flex justify-center items-center text-gray-700 mb-2">
                 <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />

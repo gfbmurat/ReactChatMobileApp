@@ -10,13 +10,15 @@ const Header = ({ isOpen, setIsOpen }) => {
     const uid = useSelector(state => state.firebase.auth.uid)
     const profile = useSelector(state => state.firebase.profile)
 
-
-
     const firebase = useFirebase()
 
     const toggleButon = () => {
         setIsOpen(!isOpen)
     }
+
+    // Uygulama ilk açıldığında user theme class olarak ekleme
+    const root = window.document.documentElement
+    root.className = profile.theme
 
     const buttonRef = useRef();
     const themeRef = useRef();
@@ -29,13 +31,19 @@ const Header = ({ isOpen, setIsOpen }) => {
     const updateTheme = () => {
         if (profile.theme === "light") {
             firebase.database().ref("users").child(uid).update({ theme: "dark" })
+            const root = window.document.documentElement
+            root.classList.remove("dark");
+            root.classList.add(profile.theme)
         } else if (profile.theme === "dark") {
             firebase.database().ref("users").child(uid).update({ theme: "light" })
+            const root = window.document.documentElement
+            root.classList.remove("light");
+            root.classList.add(profile.theme);
         }
     }
 
     return (
-        <header className="flex justify-between items-center py-3 border-b-2 border-gray-400">
+        <header className="flex justify-between items-center py-3 border-b-2 border-gray-400 ">
             <div className="flex">
                 <button className="text-gray-600 lg:hidden" onClick={toggleButon}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

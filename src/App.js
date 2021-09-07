@@ -24,8 +24,8 @@ function App() {
   }
 
   return (
-    <div className={`h-screen flex`}>
-      <div className={`${showModal ? 'blur' : ''}`}>
+    <div className={`h-screen flex dark:bg-gray-900`}>
+      <div className={`${showModal ? 'blur' : ''} border-r-[1px] border-gray-300`}>
         <Sidebar showModal={showModal} setShowModal={setShowModal} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <CreateChannelForm showModal={showModal} setShowModal={setShowModal} />
