@@ -111,6 +111,7 @@ const Message = ({ messageKey, message }) => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                theme: profile.theme === "light" ? 'dark' : 'light'
             });
             firebase.database().ref(`messages/${currentChannel.key}/${messageKey}`).remove() // Mesaj Silme İşlemi
         }
@@ -123,6 +124,7 @@ const Message = ({ messageKey, message }) => {
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
+                    theme: profile.theme === "light" ? 'dark' : 'light'
                 });
             }).autoOk(5)
         const loginTimestamp = firebase.database.ServerValue.TIMESTAMP

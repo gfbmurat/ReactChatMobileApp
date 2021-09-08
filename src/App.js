@@ -38,7 +38,6 @@ function App() {
         </div>
       </div>
       <ToastContainer
-        theme="dark"
         position="bottom-right"
         autoClose={2000}
         hideProgressBar={false}

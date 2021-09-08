@@ -11,6 +11,7 @@ const ChannelList = () => {
 
     const channels = useSelector(state => state.firebase.ordered.channels)
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
+    const profile = useSelector(state => state.firebase.profile)
     const [mounted, setMounted] = useState(false)
 
 
@@ -48,6 +49,7 @@ const ChannelList = () => {
                             pauseOnHover: true,
                             draggable: true,
                             progress: undefined,
+                            theme: profile.theme === "light" ? 'dark' : 'light'
                         });
 
                     } else {
@@ -60,6 +62,7 @@ const ChannelList = () => {
                             pauseOnHover: true,
                             draggable: true,
                             progress: undefined,
+                            theme: profile.theme === "light" ? 'dark' : 'light'
                         });
                     }
                 }
@@ -72,6 +75,7 @@ const ChannelList = () => {
                         pauseOnHover: true,
                         draggable: true,
                         progress: undefined,
+                        theme: profile.theme === "light" ? 'dark' : 'light'
                     });
                 }).set('type', 'password');
 
