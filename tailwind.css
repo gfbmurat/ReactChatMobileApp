@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
+input {
+    @apply dark:text-white;
+}
+input:focus {
+    @apply dark:text-white;
+}
 @tailwind utilities;
 
 button {
     outline: none!important;
 }
+
+

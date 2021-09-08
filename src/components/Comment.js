@@ -170,7 +170,6 @@ const Comment = ({ searchTerm }) => {
                         placeholder={`${currentChannel?.name} kanalına mesaj gönder.`} /> */}
 
                     <Input
-                        className="dark:!text-white"
                         onFocus={scrollToBottom}
                         value={content}
                         onChange={messageInputChange}
