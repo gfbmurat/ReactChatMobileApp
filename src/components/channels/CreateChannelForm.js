@@ -53,12 +53,13 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                     Kanal Oluştur
                 </ModalHeader>
                 <ModalBody>
-                    <p className="text-base leading-relaxed text-gray-600 font-normal mb-4">
+                    <p className="text-base leading-relaxed text-gray-600 dark:text-gray-500 font-normal mb-4">
                         Arkadaşlarınızla konuşabileceğiniz herkese açık veya şifreli kanallar oluşturabilirsiniz.Kanalı oluşturan kişiden başkası silemez!
                     </p>
                     <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-4">
                             <InputIcon
+                                style={{ backgroundColor: profile.theme === "light" ? '' : 'black' }}
                                 name="name"
                                 error={errors.name ? ' ' : ''}
                                 {...register("name", { required: true, maxLength: 15 })}
@@ -73,6 +74,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         </div>
                         <div className="mb-4">
                             <InputIcon
+                                style={{ backgroundColor: profile.theme === "light" ? '' : 'black' }}
                                 name="description"
                                 error={errors.description ? ' ' : ''}
                                 {...register("description", { required: true })}
@@ -87,6 +89,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         </div>
                         <div className="mb-4">
                             <Checkbox
+                                style={{ backgroundColor: profile.theme === "light" ? '' : 'black' }}
                                 onChange={() => setIsPassword(!isPassword)}
                                 name="checkPassword"
                                 color="green"
@@ -98,6 +101,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                         </div>
                         <div className={`mb-4 ${isPassword ? '' : 'hidden transition-all'}`}>
                             <InputIcon
+                                style={{ backgroundColor: profile.theme === "light" ? '' : 'black' }}
                                 name="password"
                                 error={errors.password ? ' ' : ''}
                                 {...register("password", { required: isPassword, minLength: 4 })}
