@@ -34,7 +34,7 @@ const Message = ({ messageKey, message }) => {
                 const resultL = links.filter(l => {
                     return l.match("www.youtube.com") || l.match("https://youtu.be") // Girilen message'dan linki geri döndürme
                 })
-                console.log(resultL[0]);
+                // console.log(resultL[0]);
 
                 if (ReactPlayer.canPlay(resultL[0])) {
                     return <div className="my-2">

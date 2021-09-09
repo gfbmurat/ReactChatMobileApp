@@ -7,6 +7,7 @@ import alertify from 'alertifyjs';
 import { useFirebase } from 'react-redux-firebase';
 import channelActions from '../redux/actions/channelActions'
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
 
@@ -16,6 +17,7 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
     const currentUserId = useSelector(state => state.firebase.auth.uid)
     const channels = useSelector(state => state.firebase.ordered.channels)
+    const profile = useSelector(state => state.firebase.profile)
 
     const channelNameRef = useRef()
 
@@ -24,13 +26,31 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
         // Kanal Silme İşlemi ve Genel Kanalı Aktif Etme
         alertify.confirm('Delete Channel', `${currentChannel.name} kanalını silmek istediğinize emin misiniz?`,
             function () {
-                alertify.success(`${currentChannel.name} kanalı silindi`)
+                toast.success(`${currentChannel.name} kanalı silindi`, {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: profile.theme === "light" ? 'dark' : 'light'
+                });
                 firebase.database().ref(`channels/${currentChannel.key}`).remove()
                 const { key, value } = channels[0];
                 dispatch(channelActions.setCurrentChannel({ key, ...value }))
             },
             function () {
-                alertify.error(`${currentChannel.name} kanalı silinmedi`)
+                toast.error(`${currentChannel.name} kanalı silinmedi`, {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: profile.theme === "light" ? 'dark' : 'light'
+                });
             })
     }
 
