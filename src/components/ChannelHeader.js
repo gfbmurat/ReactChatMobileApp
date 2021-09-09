@@ -21,6 +21,7 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
 
     const channelNameRef = useRef()
 
+
     const removeChannel = () => {
 
         // Kanal Silme İşlemi ve Genel Kanalı Aktif Etme

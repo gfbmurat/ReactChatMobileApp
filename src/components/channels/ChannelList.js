@@ -34,6 +34,7 @@ const ChannelList = () => {
         return "No channels"
     }
 
+
     const setActiveChannel = channel => {
         if (channel.channelPassword) { // Eğer seçilen kanal şifreli ise burası çalışacak
             console.log(channel?.channelPassword);
@@ -117,4 +118,4 @@ const ChannelList = () => {
     )
 }
 
-export default ChannelList
+export default React.memo(ChannelList)
