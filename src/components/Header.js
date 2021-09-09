@@ -49,7 +49,7 @@ const Header = ({ isOpen, setIsOpen }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
-                <div onClick={() => isOpen === true ? setIsOpen(false) : console.log()} className="ml-2 lg:ml-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 font-black text-lg">React Chat App</div>
+                <div onClick={() => isOpen === true ? setIsOpen(false) : console.log()} className="cursor-pointer ml-2 lg:ml-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 font-black text-lg">React Chat App</div>
             </div>
 
             {/* Icons */}

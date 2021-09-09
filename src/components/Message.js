@@ -26,8 +26,8 @@ const Message = ({ messageKey, message }) => {
 
     const timeFromNow = (timestamp) => moment(timestamp).fromNow();
 
-
     const renderedMessage = (message) => {
+
         if (youtubeRegex().test(message.content)) {
             if (currentChannel.name === "Şarkı Öneri") {
                 const links = message.content.split(' ')
@@ -184,4 +184,4 @@ const Message = ({ messageKey, message }) => {
     )
 }
 
-export default Message
+export default React.memo(Message)

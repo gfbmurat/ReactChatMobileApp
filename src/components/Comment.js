@@ -83,6 +83,9 @@ const Comment = ({ searchTerm }) => {
 
     const renderedMessages = searchTerm !== "" ? filterMessages() : channelMessages
 
+    // const renderedMessages = useMemo(() => {
+    //     return searchTerm !== "" ? filterMessages() : channelMessages
+    // }, [searchTerm, channelMessages, filterMessages])
 
     const uploadMedia = event => {
         const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 4000));
