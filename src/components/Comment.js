@@ -59,6 +59,7 @@ const Comment = ({ searchTerm }) => {
                 .then(() => {
                     setContent("")
                 })
+
         }
         if (profile.isActive === false) { // Kullanıcı mesaj atarken offline ise online olarak güncelledik
             firebase.database().ref("users").child(uid).update({ isActive: true })

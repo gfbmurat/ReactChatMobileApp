@@ -48,7 +48,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
 
     return (
         <>
-            <Modal size={windowSize > 480 ? 'md' : 'sm'} active={showModal} toggler={() => setShowModal(false)}>
+            {showModal && <Modal size={windowSize > 480 ? 'md' : 'sm'} active={showModal} toggler={() => setShowModal(false)}>
                 <ModalHeader toggler={() => setShowModal(false)}>
                     Kanal Oluştur
                 </ModalHeader>
@@ -136,6 +136,7 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
                     </Button>
                 </ModalFooter>
             </Modal>
+            }
         </>
     )
 }
