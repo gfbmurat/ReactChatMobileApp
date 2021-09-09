@@ -10,6 +10,7 @@ const Header = ({ isOpen, setIsOpen }) => {
     const uid = useSelector(state => state.firebase.auth.uid)
     const profile = useSelector(state => state.firebase.profile)
 
+
     const firebase = useFirebase()
 
     const toggleButon = () => {
@@ -31,12 +32,10 @@ const Header = ({ isOpen, setIsOpen }) => {
     const updateTheme = () => {
         if (profile.theme === "light") {
             firebase.database().ref("users").child(uid).update({ theme: "dark" })
-            const root = window.document.documentElement
             root.classList.remove("dark");
             root.classList.add(profile.theme)
         } else if (profile.theme === "dark") {
             firebase.database().ref("users").child(uid).update({ theme: "light" })
-            const root = window.document.documentElement
             root.classList.remove("light");
             root.classList.add(profile.theme);
         }

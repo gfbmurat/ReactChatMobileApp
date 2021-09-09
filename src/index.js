@@ -40,6 +40,10 @@ const Root = () => {
       } else {
         //Login olmamış
         history.push("/login")
+        const root = window.document.documentElement // Kullanıcı çıkış yaptığında html classlisti sildik
+        while (root.classList.length > 0) {
+          root.classList.remove(root.classList.item(0));
+        }
       }
     })
   }, [history])
