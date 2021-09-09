@@ -45,6 +45,8 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
         setValue(name, value)
     }
 
+    console.log('Createchannelform re-render oldu!');
+
 
     return (
         <>
@@ -141,4 +143,4 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
     )
 }
 
-export default CreateChannelForm
+export default React.memo(CreateChannelForm)

@@ -1,4 +1,4 @@
-
+import React from 'react'
 import ChannelList from './channels/ChannelList'
 import UserList from './users/UserList'
 

@@ -78,7 +78,7 @@ const Message = ({ messageKey, message }) => {
     }
 
 
-    const usersLikedMessage = (message) => {
+    const usersLikedMessage = (message) => { // Beğenen kullanıcıları çekme
         let likeUsername = []
         if (message.hasOwnProperty('likes')) {
             for (var i = 0; i < Object.keys(message.likes).length; i++) {
@@ -88,7 +88,7 @@ const Message = ({ messageKey, message }) => {
         return likeUsername
     }
 
-    const messageLikes = () => {
+    const messageLikes = () => { // Message Like and Dislike
 
         const loginTimestamp = firebase.database.ServerValue.TIMESTAMP
         if (message.hasOwnProperty('likes') && Object.keys(message.likes).find(item => item === uid)) { // Eğer daha önceden beğendiyse beğenme siliniyor
