@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Message from "./Message";
 import '@material-tailwind/react/tailwind.css'
-import CreateChannelForm from './channels/CreateChannelForm';
 import { useSelector } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
 import { useFirebaseConnect } from 'react-redux-firebase';
 import { v4 as uuid_v4 } from "uuid";
 import Input from "@material-tailwind/react/Input";
 import { toast } from 'react-toastify';
+// import CreateChannelForm from './channels/CreateChannelForm';
 
 const Comment = ({ searchTerm }) => {
     const currentChannel = useSelector(state => state.channelReducer.currentChannel)
@@ -190,7 +190,7 @@ const Comment = ({ searchTerm }) => {
                     </button>
                 </div>
             </form>
-            <CreateChannelForm />
+            {/* <CreateChannelForm /> */}
         </>
     )
 }

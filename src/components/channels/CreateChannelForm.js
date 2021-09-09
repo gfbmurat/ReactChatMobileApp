@@ -45,9 +45,6 @@ const CreateChannelForm = ({ showModal, setShowModal }) => {
         setValue(name, value)
     }
 
-    console.log('Createchannelform re-render oldu!');
-
-
     return (
         <>
             {showModal && <Modal size={windowSize > 480 ? 'md' : 'sm'} active={showModal} toggler={() => setShowModal(false)}>
