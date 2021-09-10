@@ -13,6 +13,7 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import PrivateRoute from './components/auth/PrivateRoute';
 import { useHistory } from 'react-router';
 import SignUp from './components/auth/SignUp';
+import Fallback from './components/auth/Fallback';
 
 
 const rrfConfig = {
@@ -55,6 +56,9 @@ const Root = () => {
       </PrivateRoute>
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
+      <PrivateRoute exact path="/logout">
+        <Fallback />
+      </PrivateRoute>
     </Switch>
   )
 }

@@ -2,11 +2,12 @@ import React from 'react'
 import { Route } from 'react-router'
 import { isLoaded, isEmpty } from 'react-redux-firebase'
 import { useSelector } from 'react-redux'
+import Fallback from './Fallback'
 
 const PrivateRoute = ({ children, ...rest }) => {
     const auth = useSelector(state => state.firebase.auth)
     return (
-        <Route {...rest} render={() => isLoaded(auth) && !isEmpty(auth) ? children : <div></div>} />
+        <Route {...rest} render={() => isLoaded(auth) && !isEmpty(auth) ? children : <Fallback />} />
     )
 }
 
