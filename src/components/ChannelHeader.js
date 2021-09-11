@@ -70,13 +70,22 @@ const ChannelHeader = ({ searchTerm, setSearchTerm }) => {
                 </Tooltips>
             </div>
             {/* <input autoComplete="off" className="xs:w-1/2 xs:focus:w-full xs:duration-300 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Search Message" /> */}
-            <div className="dark:text-gray-100 dark:placeholder-gray-100">
-                <InputIcon
-                    value={searchTerm}
-                    onChange={event => setSearchTerm(event.target.value)}
-                    iconFamily="material-icons"
-                    iconName="search" id="search" type="text" color="teal" size="sm" outline={true} placeholder="Search Message" />
+
+            <div className="flex space-x-1 group bg-red-500">
+                <button className="group-focus-within:hidden text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <div className="hidden group-focus-within:block dark:text-gray-100 dark:placeholder-gray-100">
+                    <InputIcon
+                        value={searchTerm}
+                        onChange={event => setSearchTerm(event.target.value)}
+                        iconFamily="material-icons"
+                        iconName="search" id="search" type="text" color="teal" size="sm" outline={true} placeholder="Search Message" />
+                </div>
             </div>
+
         </div>
     )
 }

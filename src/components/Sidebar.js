@@ -42,7 +42,7 @@ const Sidebar = ({ setShowModal, isOpen, setIsOpen }) => {
 
                 {/* Channels */}
                 <div className="mt-4 -mx-3">
-                    <ChannelList />
+                    <ChannelList isOpen={isOpen} setIsOpen={setIsOpen} />
                 </div>
 
                 {/* Kullanıcılar */}

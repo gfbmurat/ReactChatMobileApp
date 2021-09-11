@@ -181,7 +181,7 @@ const Comment = ({ searchTerm }) => {
                         color="lightBlue"
                         size="sm"
                         outline={true}
-                        placeholder={`${currentChannel?.name} kanalına mesaj gönder.`}
+                        placeholder={`${currentChannel?.name}`}
                     />
                     <button disabled={content === ""} type="submit" className="h-9 bg-green-400 dark:text-gray-900 hover:bg-green-200 flex items-center border text-center rounded-lg p-2 text-white hover:text-gray-600 ml-2 disabled:bg-green-100">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -5,7 +5,7 @@ import channelActions from '../../redux/actions/channelActions'
 import alertify from 'alertifyjs'
 import { toast } from "react-toastify";
 
-const ChannelList = () => {
+const ChannelList = ({ isOpen, setIsOpen }) => {
     useFirebaseConnect([{ path: "channels" }])
     const dispatch = useDispatch()
 
@@ -42,6 +42,7 @@ const ChannelList = () => {
                 , function (evt, value) {
                     if (channel?.channelPassword === value) {
                         dispatch(channelActions.setCurrentChannel(channel))
+                        setIsOpen(!isOpen)
                         toast.success('Kanala Giriş Başarılı', {
                             position: "bottom-right",
                             autoClose: 2000,
@@ -84,6 +85,7 @@ const ChannelList = () => {
 
         } else {
             dispatch(channelActions.setCurrentChannel(channel))
+            setIsOpen(!isOpen)
         }
 
     }
