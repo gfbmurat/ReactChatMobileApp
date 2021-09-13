@@ -11,7 +11,6 @@
 * Firebase Storage
 * Tailwind Css
 
-## Packege Json
 
 **Create React App**
 
