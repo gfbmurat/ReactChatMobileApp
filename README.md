@@ -28,8 +28,6 @@
 
 * "watch":"npx tailwindcss -i tailwind.css -o src/style.css --watch"
 
----
-
 ## Npm Package
 
 * firebase
